@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Kratika's Webpage</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,6 +20,27 @@
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
   </head>
+  <script>
+    function myFunction() {
+        var name = document.getElementById("myForm").fullname.value;
+        var email = document.getElementById("myForm").email.value;
+        var phoneno = document.getElementById("myForm").phoneno.value;
+        var wordsofenc = document.getElementById("myForm").wordsofenc.value;
+      var body_mail = "Hi, Someone contacted you via you webpage. <br><br>" + "Name="+name + "<br>Email="+email+"<br>Contact No="+phoneno+"<br>Words of encourangement=" + wordsofenc+"<br>";
+      // console.log(body_mail);
+      Email.send({
+      Host: "smtp.gmail.com",
+      Username : "contact.kratika.12@gmail.com",
+      Password : "Kratika123",
+      To : "gargagrakratika@gmail.com",
+      From : "contact.kratika.12@gmail.com",
+      Subject : "Someone contacted you via your webpage",
+      Body : body_mail,
+      }).then(
+        message => alert("mail sent successfully")
+      );
+    }
+    </script>
   <body>
     
     <div class="site-wrap">
@@ -47,31 +69,31 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
       <main>
         <a href="index.html" class="home-button"><span class="fa fa-home"></span></a><br>
         <h1 class="mb-5">Contact Me</h1>
-        <form action="#" method="post">
+        <form action="#" id="myForm" method="post">
             
           <div class="row mb-4">
             <div class="col-md-12">
-              <input type="text" class="form-control" placeholder="Full Name">
+              <input type="text" name="fullname" class="form-control" placeholder="Full Name">
             </div>
           </div>
           <div class="row mb-4">
             <div class="col-md-12">
-              <input type="text" class="form-control" placeholder="Email Address">
+              <input type="text" name="email" class="form-control" placeholder="Email Address">
             </div>
           </div>
           <div class="row mb-4">
             <div class="col-md-12">
-              <input type="text" class="form-control" placeholder="Phone">
+              <input type="text" name="phoneno" class="form-control" placeholder="Phone">
             </div>
           </div>
           <div class="row mb-4">
             <div class="col-md-12">
-              <textarea name="#" id="" class="form-control" placeholder="Write some words of encouragement" cols="30" rows="10"></textarea>
+              <textarea  id="" name="wordsofenc" class="form-control" placeholder="Write some words of encouragement" cols="30" rows="10"></textarea>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <input type="submit" class="btn btn-primary btn-block" value="Send Message">
+              <input type="button"  onclick="myFunction()" class="btn btn-primary btn-block" value="Send Message">
             </div>
           </div>
           
