@@ -22,10 +22,10 @@
   </head>
   <script>
     function myFunction() {
-        var name = document.getElementById("myForm").fullname.value;
-        var email = document.getElementById("myForm").email.value;
-        var phoneno = document.getElementById("myForm").phoneno.value;
-        var wordsofenc = document.getElementById("myForm").wordsofenc.value;
+      var name = document.getElementById("myForm").fullname.value;
+      var email = document.getElementById("myForm").email.value;
+      var phoneno = document.getElementById("myForm").phoneno.value;
+      var wordsofenc = document.getElementById("myForm").wordsofenc.value;
       var body_mail = "Hi, Someone contacted you via you webpage. <br><br>" + "Name="+name + "<br>Email="+email+"<br>Contact No="+phoneno+"<br>Words of encourangement=" + wordsofenc+"<br>";
       // console.log(body_mail);
       Email.send({
